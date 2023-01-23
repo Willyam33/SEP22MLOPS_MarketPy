@@ -33,6 +33,8 @@ jobs:
           cd ${GITHUB_REPOSITORY}
           ls -al
           pwd
+          find . -name api.py
           cd ${GITHUB_WORKSPACE}
           ls -al
           pwd
+          find . -name api.py
