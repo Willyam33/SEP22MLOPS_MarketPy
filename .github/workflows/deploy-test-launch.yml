@@ -1,17 +1,15 @@
-#name: Shell commands
+#name: Test on push
 on: [push]
 jobs:
   run-shell-command:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest] #, ubuntu-20.04, ubuntu-18.04]
+    runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "Hello world"
+      - name: install python library
+        run : |
+          pip install pytest
+
       - name: multiline script
         run: |
-          python3 -V
           echo "HOME: ${HOME}"
           echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
@@ -22,8 +20,8 @@ jobs:
           echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
           git init
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
-          #git config --global user.email "my-bot@bot.com"
-          #git config --global user.name "my-bot"
+          git config --global user.email "willyam.guilleron@gmail.com"
+          git config --global user.name "Willyam33"
           git fetch
           git checkout main
           git branch --set-upstream-to=origin/main
