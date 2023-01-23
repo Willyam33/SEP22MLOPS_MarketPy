@@ -38,12 +38,10 @@ jobs:
           git checkout main
           git branch --set-upstream-to=origin/main
           git pull
-          #cd python_files
-          cd essai_api
 
       - name: launch api
         run : |
-          ls -al
+          cd essai_api
           uvicorn essai_api:api --reload
 
       - name: essai api
