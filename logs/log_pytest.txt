@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.2.1, pluggy-1.0.0
+rootdir: /home/ubuntu/SEP22MLOPS_MarketPy/essai_pytest
+plugins: anyio-3.6.2
+collected 1 item
+
+essai_test.py .                                                          [100%]
+
+============================== 1 passed in 0.31s ===============================
