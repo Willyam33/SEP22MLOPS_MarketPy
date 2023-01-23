@@ -26,7 +26,8 @@ jobs:
           git checkout main
           git branch --set-upstream-to=origin/main
           git pull
-          cd python_files
+          #cd python_files
+          cd essai_pytest
           ls -al
           pytest >> log_pytest.txt
           ls -al
