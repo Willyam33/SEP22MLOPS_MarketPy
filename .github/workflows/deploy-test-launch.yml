@@ -11,7 +11,7 @@ jobs:
           pip install fastapi
 
       - name: install mysql docker instance
-        run : |
+        run: |
           docker pull mysql/mysql-server:latest
           docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
           sleep 10
