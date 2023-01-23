@@ -29,8 +29,7 @@ jobs:
           #cd python_files
           cd essai_pytest
           ls -al
-          pytest >> log_pytest.txt
-          ls -al
-          #git add .
-          #git commit -m "random file from action"
-          #git push
+          pytest >> ../logs/log_pytest.txt
+          git add ../logs/log_pytest.txt
+          git commit -m "remontee des logs pytest"
+          git push
