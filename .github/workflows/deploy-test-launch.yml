@@ -7,6 +7,8 @@ jobs:
       - name: install python library
         run : |
           pip install pytest
+          pip install uvicorn
+          pip install fastapi
 
       - name: install mysql docker instance
         run : |
