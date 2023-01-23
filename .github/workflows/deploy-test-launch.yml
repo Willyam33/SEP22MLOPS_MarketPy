@@ -2,7 +2,7 @@
 on: [push]
 
 env:
-  DB_PASSWORD
+  DB_PASSWORD: aaaaa
 
 jobs:
   run-shell-command:
