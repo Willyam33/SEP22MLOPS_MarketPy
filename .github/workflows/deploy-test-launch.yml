@@ -29,9 +29,8 @@ jobs:
           cd ..
           ls -al
           pwd
-          find . -name api.py
-
-          cd ${GITHUB_WORKSPACE}
+          cd ..
           ls -al
           pwd
           find . -name api.py
+
