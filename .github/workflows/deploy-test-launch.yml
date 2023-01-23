@@ -13,30 +13,41 @@ jobs:
           docker pull mysql/mysql-server:latest
           docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
           sleep 10
-          chaine=`docker logs my_mysql 2>&1 | grep GENERATED`
           echo $(echo `docker logs my_mysql 2>&1 | grep GENERATED` | cut -d ' ' -f 5)
+          DB_PASSWORD=echo `docker logs my_mysql 2>&1 | grep GENERATED` | cut -d ' ' -f 5
+          echo $DB_PASSWORD
+    
+      - name: get python files
+        run: |
+          echo "HOME: ${HOME}"
+          echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+          echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
+          echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
+          echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+          echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
+          echo "GITHUB TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
+          git config --global user.email "willyam.guilleron@gmail.com"
+          git config --global user.name "Willyam33"
+          git fetch
+          git checkout main
+          git branch --set-upstream-to=origin/main
+          git pull
+          cd python_files
 
-#      - name: multiline script
-#        run: |
-#          echo "HOME: ${HOME}"
-#          echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
-#          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
-#          echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
-#          echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
-#          echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
-#          echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
-#          echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
-#          echo "GITHUB TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-#          git init
-#          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
-#          git config --global user.email "willyam.guilleron@gmail.com"
-#          git config --global user.name "Willyam33"
-#          git fetch
-#          git checkout main
-#          git branch --set-upstream-to=origin/main
-#          git pull
-#          cd python_files
-          #cd essai_pytest
+      - name: launch api
+        run : |
+          uvicorn api:api --reload
+
+      - name: fin
+        run : |
+          echo $DB_PASSWORD
+
+# cd essai_pytest
+
 #          pytest >> ../logs/log_pytest.txt
 #          cat ../logs/log_pytest.txt
           #git add ../logs/log_pytest.txt
