@@ -15,8 +15,8 @@ jobs:
           docker pull mysql/mysql-server:latest
           docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
           sleep 10
-          echo $(echo `docker logs my_mysql 2>&1 | grep GENERATED` | cut -d ' ' -f 5)
-          DB_PASSWORD=echo `docker logs my_mysql 2>&1 | grep GENERATED` | cut -d ' ' -f 5
+          #echo $(echo `docker logs my_mysql 2>&1 | grep GENERATED` | cut -d ' ' -f 5)
+          DB_PASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
           echo $DB_PASSWORD
     
       - name: get python files
@@ -48,6 +48,8 @@ jobs:
         run : |
           sleep 10
           curl -X 'GET' -i 'http://127.0.0.1:8000/'
+
+      - name:
           
 
       - name: fin
