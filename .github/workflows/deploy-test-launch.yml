@@ -5,17 +5,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04, ubuntu-18.04]
+        os: [ubuntu-latest] #, ubuntu-20.04, ubuntu-18.04]
     steps:
       - name: echo a string
         run: echo "Hello world"
       - name: multiline script
         run: |
           python3 -V
-          touch my_file_with_workflow.py
-          cd ..
-          pwd
-          ls -al
           echo "HOME: ${HOME}"
           echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
@@ -24,3 +20,5 @@ jobs:
           echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
           echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
           echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
+          cp ${GITHUB_REPOSITORY}/python_files/* .
+          ls -al
