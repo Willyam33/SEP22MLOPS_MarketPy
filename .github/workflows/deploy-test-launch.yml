@@ -30,6 +30,7 @@ jobs:
           #cd python_files
           cd essai_pytest
           pytest >> ../logs/log_pytest.txt
-          git add ../logs/log_pytest.txt
-          git commit -m "remontee des logs pytest"
-          git push
+          cat ../logs/log_pytest.txt
+          #git add ../logs/log_pytest.txt
+          #git commit -m "remontee des logs pytest"
+          #git push
