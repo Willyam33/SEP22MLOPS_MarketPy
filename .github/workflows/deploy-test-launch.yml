@@ -13,8 +13,8 @@ jobs:
           docker pull mysql/mysql-server:latest
           docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
           sleep 10
-          chaine = docker logs my_mysql 2>&1 | grep GENERATED
-          echo $chaine
+          chaine=`docker logs my_mysql 2>&1 | grep GENERATED`
+          echo $(echo $chaine | cut -d ' ' -f 5)
 
 #      - name: multiline script
 #        run: |
