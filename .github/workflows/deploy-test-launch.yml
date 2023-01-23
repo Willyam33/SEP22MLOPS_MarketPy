@@ -8,6 +8,11 @@ jobs:
         run : |
           pip install pytest
 
+      - name: install mysql docker instance
+        run : |
+          docker pull mysql/mysql-server:latest
+          docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
+
       - name: multiline script
         run: |
           echo "HOME: ${HOME}"
