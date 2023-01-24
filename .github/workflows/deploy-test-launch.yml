@@ -11,9 +11,8 @@ jobs:
           pip install uvicorn
           pip install fastapi
           pip install sqlalchemy
-          sudo apt-get install python-dev-is-python3 libmysqlclient-dev 
-          pip install ConfigParser
-          pip install MySQL-python   
+          pip install mysqlclient
+ 
 
       - name: install mysql docker instance
         run: |
