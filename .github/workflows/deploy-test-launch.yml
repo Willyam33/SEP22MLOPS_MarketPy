@@ -10,6 +10,7 @@ jobs:
           pip install pytest
           pip install uvicorn
           pip install fastapi
+          pip install sqlalchemy
 
       - name: install mysql docker instance
         run: |
