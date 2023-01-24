@@ -58,12 +58,11 @@ jobs:
           #sleep 10
           #curl -X 'GET' -i 'http://127.0.0.1:8000/'
 
-          #- name: fin
-          #run : |
-          
           echo $DBPASSWORD
           echo "DB_PASSWORD = "$DBPASSWORD >> $GITHUB_ENV
 
+      - name: fin
+        run : |
           python3 database_creation.py
 
 # cd essai_pytest
