@@ -20,7 +20,7 @@ connection_url = 'mysql://{user}:{password}@{url}/{database}'.format(
     url=mysql_url,
     database=database_name
 )
-
+print(connection_url)
 # creating the connection
 mysql_engine = create_engine(connection_url)
 
