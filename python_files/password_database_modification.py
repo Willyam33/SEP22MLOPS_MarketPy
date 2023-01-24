@@ -10,7 +10,7 @@ mysql_password = sys.argv[1]
 database_name = ''
 
 # recreating the URL connection
-connection_url = 'mysql://{user}:{password}@{url}/{database}'.format(
+connection_url = 'mysql://{user}:"{password}"@{url}/{database}'.format(
     user=mysql_user,
     password=mysql_password,
     url=mysql_url,
