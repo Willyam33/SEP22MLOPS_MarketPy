@@ -46,9 +46,8 @@ jobs:
           git branch --set-upstream-to=origin/main
           git pull
 
-          #- name: launch api
-          #run : |
-          
+      - name: launch api
+        #run : |  
           cd python_files
           uvicorn api:api --reload &
 
@@ -63,6 +62,7 @@ jobs:
 
       - name: fin
         run : |
+          cd python_files
           python3 database_creation.py
 
 # cd essai_pytest
