@@ -1,12 +1,14 @@
 from sqlalchemy.engine import create_engine
 import datetime
 import log
+import os
 
 
 # By convention, -1 is used for error return code
 
 # creating a connection to the database
 # mysql_url = 'my_mysql' 
+print(os.environ.get('DB_PASSWORD'))
 mysql_url = '172.17.0.2' 
 mysql_user = 'root'
 mysql_password = 'msq3!xAk3c'  
