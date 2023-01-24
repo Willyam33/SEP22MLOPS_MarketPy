@@ -5,7 +5,7 @@ import os
 
 
 # By convention, -1 is used for error return code
-print(os.environ.get('DB_PASSWORD'))
+print(os.environ.get('GITHUB_ACTOR'))
 # creating a connection to the database
 # mysql_url = 'my_mysql' 
 mysql_url = '172.17.0.2' 
