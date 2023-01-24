@@ -24,7 +24,7 @@ jobs:
           docker inspect my_mysql | grep "\"IPAddress\""
           DBPASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
           echo $DBPASSWORD
-          echo "DB_PASSWORD = "$DBPASSWORD >> $GITHUB_ENV
+          echo "DBPASSWORD = "$DBPASSWORD >> $GITHUB_ENV
 
           #- name: get python files
           #run: |
@@ -61,8 +61,7 @@ jobs:
       - name: fin
         run : |
           cd python_files
-          export DB_PASSWORD
-          python3 database_creation.py
+          DB_PASSWORD=$DBPASSWORD python3 database_creation.py
 
 # cd essai_pytest
 
