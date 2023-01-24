@@ -11,8 +11,8 @@ jobs:
           pip install uvicorn
           pip install fastapi
           pip install sqlalchemy
-          sudo apt-get install python-dev libmysqlclient-dev    
-                
+          sudo apt-get install python-dev-is-python3 libmysqlclient-dev    
+
       - name: install mysql docker instance
         run: |
           docker pull mysql/mysql-server:latest
