@@ -13,6 +13,7 @@ jobs:
           pip install sqlalchemy
           pip install mysqlclient
           pip install pandas
+          pip install sklearn
  
 
       - name: install mysql docker instance
