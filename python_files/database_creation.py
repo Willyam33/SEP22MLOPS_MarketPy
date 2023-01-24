@@ -5,7 +5,7 @@ import os
 
 
 # By convention, -1 is used for error return code
-
+print(os.environ.get('DB_PASSWORD'))
 # creating a connection to the database
 # mysql_url = 'my_mysql' 
 mysql_url = '172.17.0.2' 
@@ -23,6 +23,7 @@ connection_url = 'mysql://{user}:{password}@{url}/{database}'.format(
 print("TATA")
 print(mysql_user)
 print(mysql_password)
+print(os.environ.get('DB_PASSWORD'))
 print(mysql_url)
 print("TATA")
 
