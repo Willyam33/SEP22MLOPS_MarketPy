@@ -1,9 +1,6 @@
 #name: Test on push
 on: [push]
 
-env:
-  DB_PASSWORD: aaaaa
-
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
@@ -23,8 +20,9 @@ jobs:
           DB_PASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
           echo $DB_PASSWORD
     
-      - name: get python files
-        run: |
+          #- name: get python files
+          #run: |
+          
           echo "HOME: ${HOME}"
           echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
@@ -43,18 +41,21 @@ jobs:
           git branch --set-upstream-to=origin/main
           git pull
 
-      - name: launch api
-        run : |
+          #- name: launch api
+          #run : |
+          
           cd essai_api
           uvicorn essai_api:api --reload &
 
-      - name: essai api
-        run : |
+          #- name: essai api
+          #run : |
+          
           sleep 10
           curl -X 'GET' -i 'http://127.0.0.1:8000/'
 
-      - name: fin
-        run : |
+          #- name: fin
+          #run : |
+          
           echo $DB_PASSWORD
 
 # cd essai_pytest
