@@ -14,7 +14,6 @@ jobs:
           pip install mysqlclient
           pip install pandas
           pip install scikit-learn
-          pip install dotenv
  
 
       - name: install mysql docker instance
