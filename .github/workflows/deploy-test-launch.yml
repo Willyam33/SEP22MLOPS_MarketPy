@@ -25,7 +25,7 @@ jobs:
           DBPASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
           echo $DBPASSWORD
 
-          echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'essai'" | docker exec  my_mysql -h mysql -u root -p $DBPASSWORD
+          echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'essai'" | docker exec  my_mysql mysql -uroot -p$DBPASSWORD
 
           echo "DBPASSWORD = "$DBPASSWORD >> $GITHUB_ENV
           echo $GITHUB_ENV
