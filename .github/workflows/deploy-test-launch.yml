@@ -12,6 +12,7 @@ jobs:
           pip install fastapi
           pip install sqlalchemy
           pip install mysqlclient
+          pip install pandas
  
 
       - name: install mysql docker instance
