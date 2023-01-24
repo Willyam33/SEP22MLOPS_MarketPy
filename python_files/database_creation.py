@@ -8,10 +8,9 @@ import os
 
 # creating a connection to the database
 # mysql_url = 'my_mysql' 
-print(os.environ.get('DB_PASSWORD'))
 mysql_url = '172.17.0.2' 
 mysql_user = 'root'
-mysql_password = 'msq3!xAk3c'  
+mysql_password = os.environ.get('DB_PASSWORD')  
 database_name = ''
 
 # recreating the URL connection
