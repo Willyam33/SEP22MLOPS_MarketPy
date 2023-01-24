@@ -11,8 +11,8 @@ jobs:
           pip install uvicorn
           pip install fastapi
           pip install sqlalchemy
-          pip install MySQLdb
-
+          pip install MySQL-python
+          
       - name: install mysql docker instance
         run: |
           docker pull mysql/mysql-server:latest
