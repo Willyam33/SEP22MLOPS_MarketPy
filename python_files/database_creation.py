@@ -2,16 +2,17 @@ from sqlalchemy.engine import create_engine
 import datetime
 import log
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#pipload_dotenv()
 # By convention, -1 is used for error return code
 print(os.environ.get('GITHUB_ACTOR'))
 # creating a connection to the database
 # mysql_url = 'my_mysql' 
 mysql_url = '172.17.0.2' 
 mysql_user = 'root'
-mysql_password = os.environ.get('DB_PASSWORD')  
+mysql_password = 'essai'
+#mysql_password = os.environ.get('DB_PASSWORD')  
 database_name = ''
 
 # recreating the URL connection
