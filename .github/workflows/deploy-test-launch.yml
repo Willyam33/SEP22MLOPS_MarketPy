@@ -22,8 +22,8 @@ jobs:
           docker run --name=my_mysql --restart on-failure -d mysql/mysql-server:latest
           sleep 10
           docker inspect my_mysql | grep "\"IPAddress\""
-          DB_PASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
-          echo $DB_PASSWORD
+          DBPASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
+          echo $DBPASSWORD
     
           #- name: get python files
           #run: |
@@ -61,7 +61,9 @@ jobs:
           #- name: fin
           #run : |
           
-          echo $DB_PASSWORD
+          echo $DBPASSWORD
+          echo "DB_PASSWORD = "$DBPASSWORD >> $GITHUB_ENV
+
           python3 database_creation.py
 
 # cd essai_pytest
