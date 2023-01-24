@@ -24,7 +24,8 @@ jobs:
           docker inspect my_mysql | grep "\"IPAddress\""
           DBPASSWORD=`docker logs my_mysql 2>&1 | grep GENERATED | cut -d ' ' -f 5`
           echo $DBPASSWORD
-    
+          echo "DB_PASSWORD = "$DBPASSWORD >> $GITHUB_ENV
+
           #- name: get python files
           #run: |
           
@@ -47,7 +48,7 @@ jobs:
           git pull
 
       - name: launch api
-        #run : |  
+        run : |  
           cd python_files
           uvicorn api:api --reload &
 
@@ -56,9 +57,6 @@ jobs:
           
           #sleep 10
           #curl -X 'GET' -i 'http://127.0.0.1:8000/'
-
-          echo $DBPASSWORD
-          echo "DB_PASSWORD = "$DBPASSWORD >> $GITHUB_ENV
 
       - name: fin
         run : |
