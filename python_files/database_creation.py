@@ -2,8 +2,9 @@ from sqlalchemy.engine import create_engine
 import datetime
 import log
 import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
 # By convention, -1 is used for error return code
 print(os.environ.get('GITHUB_ACTOR'))
 # creating a connection to the database

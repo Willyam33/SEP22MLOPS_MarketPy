@@ -14,6 +14,7 @@ jobs:
           pip install mysqlclient
           pip install pandas
           pip install scikit-learn
+          pip install dotenv
  
 
       - name: install mysql docker instance
@@ -61,10 +62,10 @@ jobs:
       - name: fin
         run : |
           cd python_files
-          export DB_PASSWORD=$DBPASSWORD
+          echo "DB_PASSWORD="$DBPASSWORD >> .env
           #DB_PASSWORD=$DBPASSWORD python3 database_creation.py
           python3 database_creation.py
-          
+
 # cd essai_pytest
 
 #          pytest >> ../logs/log_pytest.txt
